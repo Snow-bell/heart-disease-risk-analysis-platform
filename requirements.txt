@@ -4,3 +4,5 @@ pandas
 scikit-learn
 flask
 flask-cors
+flask-sqlalchemy
+sqlalchemy

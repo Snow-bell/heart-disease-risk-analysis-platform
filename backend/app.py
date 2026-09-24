@@ -1,12 +1,12 @@
 from flask import Flask
 from flask_cors import CORS
-from .models.base import db
-from .config import Config
-from .routes.patients import patients_bp
-from .routes.stats import stats_bp
-from .routes.lookups import lookups_bp
-from .routes.predict import predict_bp
-
+from models.base import db
+from config import Config
+from routes.patients import patients_bp
+from routes.stats import stats_bp
+from routes.lookups import lookups_bp
+from routes.predict import predict_bp
+import joblib
 
 def create_app():
     """Flask application factory."""
@@ -15,6 +15,10 @@ def create_app():
 
     db.init_app(app)
     CORS(app)
+
+    # Load ML model and scaler once at startup
+    app.model = joblib.load("backend/ml/model.joblib")
+    app.scaler = joblib.load("backend/ml/scaler.joblib")
 
     app.register_blueprint(patients_bp, url_prefix="/api/patients")
     app.register_blueprint(stats_bp, url_prefix="/api/stats")

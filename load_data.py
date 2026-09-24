@@ -118,14 +118,14 @@ def seed_lookup_tables(conn):
     conn.commit()
     print("Lookup tables seeded successfully.")
 
-def load_csv(conn):
+def is_populated(conn):
     """Check if the patient table already has data."""
     with conn.cursor() as cur:
         cur.execute("SELECT COUNT(*) FROM patient;")
         return cur.fetchone()[0] > 0
 
 
-def is_populated(conn):
+def load_csv(conn):
     """Load patient records from the heart disease CSV into the patient table."""
     with conn.cursor() as cur:
         # Truncate patient table before loading
