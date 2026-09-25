@@ -1,0 +1,5 @@
+__pycache__/
+*.py[cod]
+*.env
+ml/model.joblib
+ml/scaler.joblib

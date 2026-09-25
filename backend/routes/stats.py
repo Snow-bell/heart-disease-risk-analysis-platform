@@ -124,8 +124,8 @@ def get_risk_factors():
 
     return jsonify([{
         "heart_disease_present": r.heart_disease_present,
-        "avg_cholesterol": round(float(r.avg_chol, 2)),
-        "avg_blood_pressure": round(float(r.avg_bp, 2)),
-        "avg_max_heart_rate": round(r.avg_thalach, 2),
-        "avg_age": round(float(r.avg_age, 2))
+        "avg_cholesterol": round(float(r.avg_chol), 2),
+        "avg_blood_pressure": round(float(r.avg_bp), 2),
+        "avg_max_heart_rate": round(float(r.avg_thalach), 2),
+        "avg_age": round(float(r.avg_age), 2)
     } for r in results])
