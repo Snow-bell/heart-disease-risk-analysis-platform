@@ -111,7 +111,7 @@ cd frontend && npm run dev
 
 ## Database Schema
 
-<img src="design_docs/heart_disease_er_diagram.svg" height="400"/>
+<img src="design_docs/heart_disease_er_diagram.png" height="400"/>
 
 The schema is organized into five tables: `patient`, `chest_pain_type`, `thal_type`, `restecg_type`, and `slope_type`. The database is designed to be in Third Normal Form (3NF).
 
