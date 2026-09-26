@@ -7,6 +7,8 @@ services:
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      MODEL_PATH: ml/model.joblib
+      SCALER_PATH: ml/scaler.joblib
     ports:
       - "5432:5432"
     volumes:
@@ -30,8 +32,6 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    volumes:
-      - .:/app
 
   frontend:
     build: ./frontend

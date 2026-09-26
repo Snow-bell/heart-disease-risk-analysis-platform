@@ -1,7 +1,7 @@
 psycopg2-binary
 python-dotenv
 pandas
-scikit-learn
+scikit-learn==1.7.2
 flask
 flask-cors
 flask-sqlalchemy

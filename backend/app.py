@@ -7,6 +7,7 @@ from routes.stats import stats_bp
 from routes.lookups import lookups_bp
 from routes.predict import predict_bp
 import joblib
+import os
 
 def create_app():
     """Flask application factory."""
@@ -17,8 +18,8 @@ def create_app():
     CORS(app)
 
     # Load ML model and scaler once at startup
-    app.model = joblib.load("backend/ml/model.joblib")
-    app.scaler = joblib.load("backend/ml/scaler.joblib")
+    app.model = joblib.load(os.getenv("MODEL_PATH", "ml/model.joblib"))
+    app.scaler = joblib.load(os.getenv("SCALER_PATH", "ml/scaler.joblib"))
 
     app.register_blueprint(patients_bp, url_prefix="/api/patients")
     app.register_blueprint(stats_bp, url_prefix="/api/stats")

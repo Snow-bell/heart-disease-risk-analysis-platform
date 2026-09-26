@@ -181,10 +181,6 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
-# ML model artifacts
-backend/ml/model.joblib
-backend/ml/scaler.joblib
-
 # Frontend
 frontend/node_modules/
 frontend/dist/
